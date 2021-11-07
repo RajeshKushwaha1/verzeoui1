@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ArrowDown from "../img/ArrorDown.svg";
 import Edit from "../img/Edit.svg";
@@ -6,10 +6,12 @@ import Delete from "../img/Delete.svg";
 import Refres from "../img/Refres.svg";
 import LeftArrow from "../img/LeftArrow.svg";
 import Right from "../img/RightArrow.svg";
+import Popup from "../LeadGen/PopUp";
 
 const TableMainDiv = styled.div`
-  width: 1101px;
+  width: 100%;
   height: 100vh;
+  border: 1px solid red;
 `;
 
 const TableHeading = styled.h1`
@@ -53,6 +55,7 @@ const Input = styled.input`
 `;
 
 const ImgArrowDown = styled.img`
+  cursor: pointer;
   margin-left: -1.5rem;
 `;
 
@@ -99,7 +102,7 @@ const Tables = styled.table`
   width: 1044px;
   height: auto;
   margin-left: 28px;
-  margin-top: 1rem; 
+  margin-top: 1rem;
   opacity: 1;
 `;
 
@@ -126,7 +129,7 @@ const Tr = styled.tr`
   height: 56px;
   border: 1px solid yellow;
   &:nth-child(odd) {
-    background: #F6F8F9 0% 0% no-repeat padding-box;
+    background: #f6f8f9 0% 0% no-repeat padding-box;
   }
 `;
 
@@ -139,7 +142,6 @@ const TdTbody = styled.td`
   color: #202124;
   opacity: 1;
   text-align: left;
- 
 `;
 
 // tr:nth-child(even) {
@@ -186,7 +188,63 @@ const EmailPara = styled.p`
   opacity: 1;
 `;
 
+const UlDropDown = styled.div`
+  margin-top: 0.5rem;
+  position: absolute;
+  width: 280px;
+  height: 97px;
+  list-style: none;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 6px;
+  z-index: 6;
+ 
+`;
+
+const LiDropDownMainDiv1 = styled.div`
+  width: 280px;
+  height: 48px;
+  border-radius: 6px;
+  background: #f6f8f9 0% 0% no-repeat padding-box;
+  /* border: 1px solid red; */
+`;
+
+const LiDropDownMainDiv2 = styled.div`
+  width: 280px;
+  height: 49px;
+  border-radius: 6px;
+  background: #f6f8f9 0% 0% no-repeat padding-box;
+  /* border: 1px solid red; */
+`;
+
+const LiDropDown = styled.p`
+  position: absolute;
+  margin-top: 14px;
+  margin-left: 27px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-family: Poppins;
+  letter-spacing: 0px;
+  color: #202124;
+  opacity: 1;
+  /* border: 1px solid red; */
+  /* background: #f6f8f9 0% 0% no-repeat padding-box; */
+`;
+
+const TeamPopupDiv = styled.div`
+  width: 280px;
+  height: 48px;
+  border-radius: 6px;
+  /* border: 1px solid red; */
+`;
+
 const Table = () => {
+  const [open, setOpen] = useState(false);
+  const [popup, setPopup] = useState(false);
+  const [activeBtn, setActiveBtn] = useState("first_btn");
+  
   const DataList = [
     {
       id: 1,
@@ -246,13 +304,48 @@ const Table = () => {
     },
   ];
 
+  const HandleClick = () => {
+    setOpen(!open);
+  };
+
+  const HandlePopup = () => {
+    setPopup(!popup);
+  };
+
+  const HandleButtonColor = (val) => {
+    setActiveBtn(val);
+  };
+
   return (
     <>
       <TableMainDiv>
         <TableHeading>Lead Gen</TableHeading>
         <InpEdiDelRefDIv>
           <Input placeholder="  Assign To" />
-          <ImgArrowDown src={ArrowDown} alt="ArrowDown" />
+
+          <ImgArrowDown src={ArrowDown} alt="ArrowDown" onClick={HandleClick} />
+          {open && (
+            <UlDropDown>
+              <LiDropDownMainDiv1
+                onClick={() => HandleButtonColor("first_btn")}
+                style={{
+                  background: `${activeBtn === "first_btn" ? "#d4d7db" : ""}`,
+                }}
+              >
+                <LiDropDown>Automatically</LiDropDown>
+              </LiDropDownMainDiv1>
+              <LiDropDownMainDiv2
+                onClick={() => HandleButtonColor("second_btn")}
+                style={{
+                  background: `${activeBtn === "second_btn" ? "#d4d7db" : ""}`,
+                }}
+              >
+                <TeamPopupDiv onClick={HandlePopup}>
+                  <LiDropDown>Team member</LiDropDown>
+                </TeamPopupDiv>
+              </LiDropDownMainDiv2>
+            </UlDropDown>
+          )}
           <ImgEdit src={Edit} alt="Edit" />
           <ImgDelete src={Delete} alt="Delete" />
           <ImgRefres src={Refres} alt="Refres" />
@@ -260,6 +353,8 @@ const Table = () => {
           <ImgLeftArrow src={LeftArrow} alt="LeftArrow" />
           <ImgRightArrow src={Right} alt="Right" />
         </InpEdiDelRefDIv>
+        {popup && <Popup />}
+
         <Tables>
           <TheadTh>
             <TrTh>
