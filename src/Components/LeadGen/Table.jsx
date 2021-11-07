@@ -11,6 +11,7 @@ import Popup from "../LeadGen/PopUp";
 const TableMainDiv = styled.div`
   width: 100%;
   height: 100vh;
+  overflow-y: hidden;
   border: 1px solid red;
 `;
 
@@ -78,7 +79,7 @@ const ImgRefres = styled.img`
 const OneToFifty = styled.span`
   width: 91px;
   height: 20px;
-  margin-left: 620px;
+  margin-left: 880px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -99,24 +100,41 @@ const ImgRightArrow = styled.img`
 `;
 
 const Tables = styled.table`
-  width: 1044px;
+  /* width: 98.25%; */
+  width: 100%;
   height: auto;
-  margin-left: 28px;
+  padding-left: 28px;
+  padding-right: 28px;
+  /* margin-left: 28px; */
   margin-top: 1rem;
   opacity: 1;
+
+  border: 1px solid red;
 `;
 
 const TheadTh = styled.thead`
-  width: 1044px;
+  width: 90%;
   height: 56px;
-  border: 1px solid black;
+  margin-left: 28px;
+  /* border: 1px solid red; */
+  /* background-color: red; */
 `;
 
 const TrTh = styled.tr`
-  width: 1044px;
+  width: 90%;
   height: 56px;
+  margin-left: 28px;
   text-align: left;
-  border: 1px solid black;
+  border: 1px solid red !important;
+  th {
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    color: #4a4a4a;
+    opacity: 1;
+  }
 `;
 
 const Tbody = styled.tbody`
@@ -125,16 +143,14 @@ const Tbody = styled.tbody`
   border: 1px solid black;
 `;
 const Tr = styled.tr`
-  width: 1044px;
   height: 56px;
-  border: 1px solid yellow;
   &:nth-child(odd) {
     background: #f6f8f9 0% 0% no-repeat padding-box;
   }
 `;
 
 const TdTbody = styled.td`
-  font-weight: 500;
+  font-weight: normal;
   font-size: 13px;
   font-style: normal;
   font-family: Poppins;
@@ -143,10 +159,6 @@ const TdTbody = styled.td`
   opacity: 1;
   text-align: left;
 `;
-
-// tr:nth-child(even) {
-//     background-color: #dddddd;
-//   }
 
 const TdTbodyTime = styled.td`
   font-weight: bold;
@@ -197,7 +209,6 @@ const UlDropDown = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 6px;
   z-index: 6;
- 
 `;
 
 const LiDropDownMainDiv1 = styled.div`
@@ -244,8 +255,32 @@ const Table = () => {
   const [open, setOpen] = useState(false);
   const [popup, setPopup] = useState(false);
   const [activeBtn, setActiveBtn] = useState("first_btn");
-  
+
   const DataList = [
+    {
+      id: 1,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 1,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 1,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
     {
       id: 1,
       CustomerDetail: "Anmol agarwal",
