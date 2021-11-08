@@ -2,10 +2,22 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Close from "../img/Close.svg";
 
+const PopupContainerDiv = styled.div`
+width: 100%;
+height: 100%;
+position: absolute;
+/* display: flex; */
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+ background-color: rgba(0,0,0,.2);
+`;
+
 const PopupContainer = styled.div`
-  position: absolute;
+  position: relative;
   margin-left: 9rem;
-  margin-top: 4.5rem;
+  margin-top: 16rem;
   z-index: 10;
   width: 548px;
   height: 277px;
@@ -78,6 +90,7 @@ const Popup = () => {
   return (
     <>
       {cross && (
+        <PopupContainerDiv>
         <PopupContainer>
           <Crossbtn>
             <img src={Close} alt="Close" onClick={HandleCross} />
@@ -98,6 +111,7 @@ const Popup = () => {
             </form>
           </Selector>
         </PopupContainer>
+        </PopupContainerDiv>
       )}
     </>
   );

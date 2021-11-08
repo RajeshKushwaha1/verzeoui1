@@ -218,6 +218,7 @@ const EmailPara = styled.p`
 `;
 
 const UlDropDown = styled.div`
+position: absolute;
   overflow: hidden;
   width: 22%;
   margin-top: 0.5rem;
@@ -367,6 +368,10 @@ const Table = () => {
     setActiveBtn(val);
   };
 
+  const HandleSelectData = (e) =>{
+    console.log(e)
+  }
+
   return (
     <>
       <TableMainDiv>
@@ -407,7 +412,6 @@ const Table = () => {
           </DivLeftRight>
         </InpEdiDelRefDIv>
         {popup && <Popup />}
-
         <Tables>
           <TheadTh>
             <TrTh>
@@ -425,8 +429,8 @@ const Table = () => {
               DataList.map((el, index) => {
                 return (
                   <Tr key={index}>
-                    <TdTbody>
-                      <InputCheckBox type="checkbox" />
+                    <TdTbody >
+                      <InputCheckBox type="checkbox" onClick={HandleSelectData}/>
                       <CustDetailEmailDiv>
                         {el.CustomerDetail}
                         <br />
