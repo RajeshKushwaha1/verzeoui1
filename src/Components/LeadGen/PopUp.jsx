@@ -1,43 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Close from "../img/Close.svg"
-
-const Popup = () => {
-
-    const [cross, setCross] = useState(true);
-
-    const HandleCross = () => {
-        setCross(!cross)
-    }
-
-  return (
-    <>
-    {cross && <PopupContainer>
-        <Crossbtn>
-          <img src={Close} alt="Close" onClick={HandleCross}/>
-        </Crossbtn>
-        <Team>Assign to team member</Team>
-        <Selector>
-          <form>
-            <label for="member">Select member</label>
-            <br />
-            <select name="team" id="cars">
-              <option value="Tech">Tech member</option>
-              <option value="opertor">opertor</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-            <br />
-            <button>Create</button>
-          </form>
-        </Selector>
-      </PopupContainer>}
-      
-    </>
-  );
-};
-
-export default Popup;
+import Close from "../img/Close.svg";
 
 const PopupContainer = styled.div`
   position: absolute;
@@ -104,3 +67,42 @@ const Selector = styled.div`
     }
   }
 `;
+
+const Popup = () => {
+  const [cross, setCross] = useState(true);
+
+  const HandleCross = () => {
+    setCross(!cross);
+  };
+
+  return (
+    <>
+      {cross && (
+        <PopupContainer>
+          <Crossbtn>
+            <img src={Close} alt="Close" onClick={HandleCross} />
+          </Crossbtn>
+          <Team>Assign to team member</Team>
+          <Selector>
+            <form>
+              <label for="member">Select member</label>
+              <br />
+              <select name="team" id="cars">
+                <option value="Tech">Tech member</option>
+                <option value="opertor">opertor</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+              </select>
+              <br />
+              <button>Create</button>
+            </form>
+          </Selector>
+        </PopupContainer>
+      )}
+    </>
+  );
+};
+
+export default Popup;
+
+

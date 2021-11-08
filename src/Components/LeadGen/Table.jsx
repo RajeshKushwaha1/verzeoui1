@@ -12,7 +12,6 @@ const TableMainDiv = styled.div`
   width: 100%;
   height: 100vh;
   overflow-y: hidden;
-  border: 1px solid red;
 `;
 
 const TableHeading = styled.h1`
@@ -36,16 +35,18 @@ const InpEdiDelRefDIv = styled.div`
 `;
 
 const Input = styled.input`
-  width: 280px;
+  width: 22%;
   height: 40px;
+  padding-left: 1rem;
   outline: none;
   background: #f7f7f7 0% 0% no-repeat padding-box;
   border-radius: 4px;
   border: none;
   opacity: 1;
   ::placeholder {
+    height: 17px;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
     font-family: Poppins;
     letter-spacing: 0px;
@@ -62,16 +63,22 @@ const ImgArrowDown = styled.img`
 
 const ImgEdit = styled.img`
   position: absolute;
+  width: 19px;
+  height: 19px;
   margin-top: 10px;
   margin-left: 35.25px;
 `;
 const ImgDelete = styled.img`
   position: absolute;
+  width: 16px;
+  height: 20px;
   margin-top: 10px;
   margin-left: 70px;
 `;
 const ImgRefres = styled.img`
   position: absolute;
+  width: 20px;
+  height: 20px;
   margin-top: 10px;
   margin-left: 100px;
 `;
@@ -79,7 +86,6 @@ const ImgRefres = styled.img`
 const OneToFifty = styled.span`
   width: 91px;
   height: 20px;
-  margin-left: 880px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -88,36 +94,36 @@ const OneToFifty = styled.span`
   color: #585858;
   opacity: 1;
 `;
+
+const DivLeftRight = styled.div`
+  float: right;
+  width: 10rem;
+  height: 20px;
+  margin-top: 0.7rem;
+`;
+
 const ImgLeftArrow = styled.img`
   position: absolute;
-  margin-top: 10px;
   margin-left: 15px;
 `;
 const ImgRightArrow = styled.img`
   position: absolute;
-  margin-top: 10px;
-  margin-left: 50px;
+  margin-left: 60px;
 `;
 
 const Tables = styled.table`
-  /* width: 98.25%; */
   width: 100%;
   height: auto;
   padding-left: 28px;
   padding-right: 28px;
-  /* margin-left: 28px; */
   margin-top: 1rem;
   opacity: 1;
-
-  border: 1px solid red;
 `;
 
 const TheadTh = styled.thead`
   width: 90%;
   height: 56px;
   margin-left: 28px;
-  /* border: 1px solid red; */
-  /* background-color: red; */
 `;
 
 const TrTh = styled.tr`
@@ -135,6 +141,9 @@ const TrTh = styled.tr`
     color: #4a4a4a;
     opacity: 1;
   }
+  &:hover {
+    background-color: #c2d7e2;
+  }
 `;
 
 const Tbody = styled.tbody`
@@ -147,11 +156,17 @@ const Tr = styled.tr`
   &:nth-child(odd) {
     background: #f6f8f9 0% 0% no-repeat padding-box;
   }
+
+  &:hover {
+    background-color: #c2d7e2;
+  }
 `;
 
 const TdTbody = styled.td`
-  font-weight: normal;
+  width: 28%;
+  font-weight: 400;
   font-size: 13px;
+  line-height: 20px;
   font-style: normal;
   font-family: Poppins;
   letter-spacing: 0px;
@@ -161,6 +176,7 @@ const TdTbody = styled.td`
 `;
 
 const TdTbodyTime = styled.td`
+  width: 28%;
   font-weight: bold;
   font-size: 13px;
   font-style: normal;
@@ -171,14 +187,15 @@ const TdTbodyTime = styled.td`
 `;
 
 const InputCheckBox = styled.input`
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-left: 11px;
   opacity: 1;
+  outline: none;
+  border: 2px solid white;
 `;
-
 const CustDetailEmailDiv = styled.div`
   width: auto;
-  margin-top: -1.8rem;
+  margin-top: -2rem;
   margin-left: 2rem;
 `;
 const InputCheckBoxTH = styled.input`
@@ -186,7 +203,7 @@ const InputCheckBoxTH = styled.input`
   margin-left: 11px;
 `;
 const ThCustomDetail = styled.div`
-  margin-top: -1.3rem;
+  margin-top: -1.4rem;
   margin-left: 2rem;
 `;
 
@@ -194,16 +211,17 @@ const EmailPara = styled.p`
   font-weight: normal;
   font-style: normal;
   font-size: 13px;
-  font-family: normal normal normal 13px/23px Acumin Pro;
+  font-family: Poppins;
   letter-spacing: 0px;
   color: #a6adb4;
   opacity: 1;
 `;
 
 const UlDropDown = styled.div`
+  overflow: hidden;
+  width: 22%;
   margin-top: 0.5rem;
   position: absolute;
-  width: 280px;
   height: 97px;
   list-style: none;
   box-shadow: 0px 3px 6px #00000029;
@@ -212,43 +230,41 @@ const UlDropDown = styled.div`
 `;
 
 const LiDropDownMainDiv1 = styled.div`
-  width: 280px;
+  width: 100%;
   height: 48px;
-  border-radius: 6px;
-  background: #f6f8f9 0% 0% no-repeat padding-box;
-  /* border: 1px solid red; */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background: #f6f8f9 22% no-repeat padding-box;
 `;
 
 const LiDropDownMainDiv2 = styled.div`
-  width: 280px;
+  width: 100%;
   height: 49px;
-  border-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   background: #f6f8f9 0% 0% no-repeat padding-box;
-  /* border: 1px solid red; */
 `;
 
 const LiDropDown = styled.p`
+  width: auto;
   position: absolute;
   margin-top: 14px;
   margin-left: 27px;
   cursor: pointer;
   border-radius: 6px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   font-family: Poppins;
   letter-spacing: 0px;
   color: #202124;
   opacity: 1;
-  /* border: 1px solid red; */
-  /* background: #f6f8f9 0% 0% no-repeat padding-box; */
 `;
 
 const TeamPopupDiv = styled.div`
   width: 280px;
   height: 48px;
   border-radius: 6px;
-  /* border: 1px solid red; */
 `;
 
 const Table = () => {
@@ -356,7 +372,7 @@ const Table = () => {
       <TableMainDiv>
         <TableHeading>Lead Gen</TableHeading>
         <InpEdiDelRefDIv>
-          <Input placeholder="  Assign To" />
+          <Input placeholder="Assign To" />
 
           <ImgArrowDown src={ArrowDown} alt="ArrowDown" onClick={HandleClick} />
           {open && (
@@ -364,7 +380,7 @@ const Table = () => {
               <LiDropDownMainDiv1
                 onClick={() => HandleButtonColor("first_btn")}
                 style={{
-                  background: `${activeBtn === "first_btn" ? "#d4d7db" : ""}`,
+                  background: `${activeBtn === "first_btn" ? "#e5e9ee" : ""}`,
                 }}
               >
                 <LiDropDown>Automatically</LiDropDown>
@@ -372,7 +388,7 @@ const Table = () => {
               <LiDropDownMainDiv2
                 onClick={() => HandleButtonColor("second_btn")}
                 style={{
-                  background: `${activeBtn === "second_btn" ? "#d4d7db" : ""}`,
+                  background: `${activeBtn === "second_btn" ? "#e5e9ee" : ""}`,
                 }}
               >
                 <TeamPopupDiv onClick={HandlePopup}>
@@ -384,9 +400,11 @@ const Table = () => {
           <ImgEdit src={Edit} alt="Edit" />
           <ImgDelete src={Delete} alt="Delete" />
           <ImgRefres src={Refres} alt="Refres" />
-          <OneToFifty>1 to 50 of 200</OneToFifty>
-          <ImgLeftArrow src={LeftArrow} alt="LeftArrow" />
-          <ImgRightArrow src={Right} alt="Right" />
+          <DivLeftRight>
+            <OneToFifty>1 to 50 of 200</OneToFifty>
+            <ImgLeftArrow src={LeftArrow} alt="LeftArrow" />
+            <ImgRightArrow src={Right} alt="Right" />
+          </DivLeftRight>
         </InpEdiDelRefDIv>
         {popup && <Popup />}
 

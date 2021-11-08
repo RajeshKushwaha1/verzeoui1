@@ -3,27 +3,6 @@ import styled from "styled-components";
 import verzeologo from "../img/verzeologo.svg";
 import ArrowDown from "../img/ArrorDown.svg";
 
-const Navbar = () => {
-  return (
-    <>
-      <NavbarContainer>
-        <Logo>
-          <img src={verzeologo} alt="verzeologo" />
-        </Logo>
-        <Text>
-          <Circle>A</Circle>
-          <p>Anmol agarwal</p>
-          <span>
-            <img src={ArrowDown} alt="ArrowDown" />
-          </span>
-        </Text>
-      </NavbarContainer>
-    </>
-  );
-};
-
-export default Navbar;
-
 const NavbarContainer = styled.div`
   width: auto;
   height: 62px;
@@ -51,12 +30,12 @@ const Text = styled.div`
     }
   }
   p {
+    color: #ffffff;
     height: 17px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
     font-family: Poppins;
-    font-family: "Poppins", sans-serif;
     letter-spacing: 0px;
     color: #0b1838;
     margin-left: 11px;
@@ -71,6 +50,12 @@ const Text = styled.div`
 const Circle = styled.div`
   width: 30px;
   height: 29px;
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-family: Poppins;
+  letter-spacing: 0px;
   background: #de3da0 0% 0% no-repeat padding-box;
   border-radius: 50%;
   display: flex;
@@ -78,3 +63,26 @@ const Circle = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+
+const Navbar = () => {
+  return (
+    <>
+      <NavbarContainer>
+        <Logo>
+          <img src={verzeologo} alt="verzeologo" />
+        </Logo>
+        <Text>
+          <Circle>A</Circle>
+          <p>Anmol agarwal</p>
+          <span>
+            <img src={ArrowDown} alt="ArrowDown" />
+          </span>
+        </Text>
+      </NavbarContainer>
+    </>
+  );
+};
+
+export default Navbar;
+
+
