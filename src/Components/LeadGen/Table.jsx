@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState,useRef } from "react";
 import styled from "styled-components";
 import ArrowDown from "../img/ArrorDown.svg";
 import Edit from "../img/Edit.svg";
@@ -134,11 +134,11 @@ const TrTh = styled.tr`
   border: 1px solid red !important;
   th {
     font-size: 13px;
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
     font-family: Poppins;
     letter-spacing: 0px;
-    color: #4a4a4a;
+    color: #4A4A4A;
     opacity: 1;
   }
   &:hover {
@@ -164,7 +164,7 @@ const Tr = styled.tr`
 
 const TdTbody = styled.td`
   width: 28%;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 13px;
   line-height: 20px;
   font-style: normal;
@@ -201,6 +201,8 @@ const CustDetailEmailDiv = styled.div`
 const InputCheckBoxTH = styled.input`
   margin-top: 0.3rem;
   margin-left: 11px;
+  font-weight: 500;
+  color: #4A4A4A;
 `;
 const ThCustomDetail = styled.div`
   margin-top: -1.4rem;
@@ -272,89 +274,105 @@ const Table = () => {
   const [open, setOpen] = useState(false);
   const [popup, setPopup] = useState(false);
   const [activeBtn, setActiveBtn] = useState("first_btn");
+  const checkBoxes=[{}];
+  const [selectedAll, setSelectedAll] = useState(false);
+  const [selected, setSelected] = useState(false);
+  const selectAllRef=useRef();
+  const [DataList,setDataList] =useState([
+    {
+      id: 1,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 2,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 3,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 4,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 5,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    {
+      id: 6,
+      CustomerDetail: "Anmol agarwal",
+      Email: "Anmolagarwal@verzeo.com",
+      PhoneNo: "7008276545",
+      CreateDate: "04 Apr 2021",
+      Time: "7:47 pm",
+    },
+    // {
+    //   id: 6,
+    //   CustomerDetail: "Anmol agarwal",
+    //   Email: "Anmolagarwal@verzeo.com",
+    //   PhoneNo: "7008276545",
+    //   CreateDate: "04 Apr 2021",
+    //   Time: "7:47 pm",
+    // },
+    // {
+    //   id: 7,
+    //   CustomerDetail: "Anmol agarwal",
+    //   Email: "Anmolagarwal@verzeo.com",
+    //   PhoneNo: "7008276545",
+    //   CreateDate: "04 Apr 2021",
+    //   Time: "7:47 pm",
+    // },
+    // {
+    //   id: 8,
+    //   CustomerDetail: "Anmol agarwal",
+    //   Email: "Anmolagarwal@verzeo.com",
+    //   PhoneNo: "7008276545",
+    //   CreateDate: "04 Apr 2021",
+    //   Time: "7:47 pm",
+    // },
+    // {
+    //   id: 9,
+    //   CustomerDetail: "Anmol agarwal",
+    //   Email: "Anmolagarwal@verzeo.com",
+    //   PhoneNo: "7008276545",
+    //   CreateDate: "04 Apr 2021",
+    //   Time: "7:47 pm",
 
-  const DataList = [
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-    {
-      id: 1,
-      CustomerDetail: "Anmol agarwal",
-      Email: "Anmolagarwal@verzeo.com",
-      PhoneNo: "7008276545",
-      CreateDate: "04 Apr 2021",
-      Time: "7:47 pm",
-    },
-  ];
+    // },
+  ]);
+
+  const [selectedDataContainer, setSelectedDataContainer] = useState([]);
+
+  useEffect(() => {
+    DataList.forEach(el=>{
+      el.isSelected=false;
+    })
+  }, [])
+
+  useEffect(() => {
+    //  console.log('selectedDataContainer: ',selectedDataContainer);
+  }, [selectedDataContainer])
 
   const HandleClick = () => {
     setOpen(!open);
@@ -369,7 +387,79 @@ const Table = () => {
   };
 
   const HandleSelectData = (e) =>{
-    console.log(e)
+    DataList.forEach((el,id)=>{
+      if(Number(e.target.id)===id){
+        if(!el.isSelected){
+          console.log(el);
+          el.isSelected=true;
+        }
+        else{
+          el.isSelected=false;
+        }
+      }
+    })
+  }
+  
+  const selectAllCheckboxes=()=>{
+    let localSelectedArr=[];
+    if(!selectedAll){
+      checkBoxes.forEach((checkbox,index)=>{
+        checkbox.checked=true;
+        DataList.forEach((el,id)=>{
+          if(id===index){
+            console.log(el);
+            el.isSelected=true;
+            localSelectedArr.push(el);
+          }
+        })
+      })
+      setSelectedAll(true);
+      setSelectedDataContainer(localSelectedArr);
+    }
+    else{
+      checkBoxes.forEach((checkbox,index)=>{
+        DataList.forEach((el,id)=>{
+          checkbox.checked=false;
+          if(id===index){
+            el.isSelected=false;
+          }
+        })
+      })
+      setSelectedDataContainer([]);
+      setSelectedAll(false);
+    }
+  }
+
+  const deleteSelectedData=()=>{
+    selectAllRef.current.checked=false;
+    setSelectedAll(false);
+    if(selectedDataContainer && selectedDataContainer.length>=1){
+      checkBoxes.forEach((checkbox,index)=>{
+        selectedDataContainer.forEach((el,id)=>{
+          checkbox.checked=false;
+          if(id===index){
+            if(el.isSelected){
+              // checkbox.checked=false;
+              // el.isSelected=false;
+              setSelectedDataContainer(selectedDataContainer.splice(index,1));
+              // selectAllRef.current.checked=false;
+            }
+          }
+        });
+      })
+    }
+    else{
+      alert('please select data to delete');
+    }
+  }
+
+  const handleRefresh=()=>{
+    checkBoxes.forEach(checkbox=>{
+      checkbox.checked=false;
+    })
+    setSelectedDataContainer([]);
+    selectAllRef.current.checked=false;
+    setSelectedAll(false);
   }
 
   return (
@@ -403,8 +493,8 @@ const Table = () => {
             </UlDropDown>
           )}
           <ImgEdit src={Edit} alt="Edit" />
-          <ImgDelete src={Delete} alt="Delete" />
-          <ImgRefres src={Refres} alt="Refres" />
+          <ImgDelete src={Delete} alt="Delete" onClick={deleteSelectedData} />
+          <ImgRefres src={Refres} alt="Refres" onClick={handleRefresh} />
           <DivLeftRight>
             <OneToFifty>1 to 50 of 200</OneToFifty>
             <ImgLeftArrow src={LeftArrow} alt="LeftArrow" />
@@ -416,7 +506,7 @@ const Table = () => {
           <TheadTh>
             <TrTh>
               <th>
-                <InputCheckBoxTH type="checkbox" />
+                <InputCheckBoxTH type="checkbox" onChange={selectAllCheckboxes} ref={selectAllRef} />
                 <ThCustomDetail>Customer detail</ThCustomDetail>
               </th>
               <th>Phone no.</th>
@@ -430,7 +520,7 @@ const Table = () => {
                 return (
                   <Tr key={index}>
                     <TdTbody >
-                      <InputCheckBox type="checkbox" onClick={HandleSelectData}/>
+                      <InputCheckBox type="checkbox" ref={checkBox=>checkBoxes[index]=checkBox} onClick={HandleSelectData} id={index}/>
                       <CustDetailEmailDiv>
                         {el.CustomerDetail}
                         <br />

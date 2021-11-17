@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label>username:</label>
+        <input type="text" name="" id="usernamecheck"
+        onkeyup="validation()">
+    </form>
+
+    <script>
+        function validation(){
+        let username = document.getElementById('usernamecheck').value;
+        let usernamepattern = /^[A-Za-z .]{3,20}$/;
+        if(usernamepattern.test(username)){
+            document.getElementById("usernamecheck").style.backgroundColor="green";
+        }else{
+            document.getElementById("usernamecheck").style.backgroundColor="red";
+        }
+    }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function validate(){
+            var valid = false;
+            if(document.getElementById("javascript").checked){
+                valid = true;
+            }else if(document.getElementById("jquery").checked){
+                valid = true;
+            }else if(document.getElementById("angular").checked){
+                valid = true;
+            }else if(document.getElementById("react").checked){
+                valid = true;
+            }if(valid){
+                alert("validation successful");
+            }else{
+                alert("please select at least one technology");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Select a technology</h3>
+<form name="myform" action="dropdown.php" onsubmit="return validate()">
+    <input type="checkbox" id="javascript" value="javascript">javascript
+    <input type="checkbox" id="jquery" value="javascript">javascript
+    <input type="checkbox" id="angular" value="javascript">javascript
+    <input type="checkbox" id="react" value="javascript">javascript
+
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
